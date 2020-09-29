@@ -91,7 +91,7 @@ const Login = () => {
             profile = profileResult;
             localStorage.setItem('profile', JSON.stringify(profile))
 
-            console.log(profile.name, accessToken)
+
             // Update DOM
         });
     });
