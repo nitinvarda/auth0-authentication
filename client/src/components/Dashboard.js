@@ -18,20 +18,32 @@ const Dashboard = () => {
 
     if (localStorage.getItem('token')) {
         const profile = JSON.parse(localStorage.getItem('profile'))
-        return (
-            <div>
-                <h2>This is the private dashboard</h2>
-                <button onClick={logout}>logout</button>
-
-
-
+        if (localStorage.getItem('profile')) {
+            return (
                 <div>
+
                     <h2>This is from auth0-lock authentication</h2>
                     <h3>{profile.name}</h3>
                     <h3>{profile.email}</h3>
+
+
                 </div>
-            </div>
-        );
+            )
+        }
+        else {
+
+
+            return (
+                <div>
+                    <h2>This is the private dashboard</h2>
+                    <button onClick={logout}>logout</button>
+
+
+
+
+                </div>
+            );
+        }
 
     }
     else {

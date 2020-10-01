@@ -3,6 +3,7 @@ import auth0 from 'auth0-js';
 import { DOMAIN, AUDIENCE, CLIENT_ID } from '../config';
 import { Redirect, Link } from 'react-router-dom';
 import { Auth0Lock } from 'auth0-lock';
+import axios from 'axios';
 
 const Login = () => {
     const [data, setData] = useState({
@@ -63,6 +64,7 @@ const Login = () => {
                         ...data,
                         authorized: true
                     })
+                    console.log(authResult)
 
 
 
@@ -134,7 +136,7 @@ const Login = () => {
                 <div>
                     <h1>This is using auth0-lock</h1>
                     <button onClick={login}>Login</button>
-                    <Link to="/dashboard"><button>Dashboard</button></Link>
+                    {/* <Link to="/dashboard"><button>Dashboard</button></Link> */}
                     <button onClick={logout}>Logout</button>
                 </div>
 

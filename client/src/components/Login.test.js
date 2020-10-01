@@ -9,7 +9,7 @@ describe('testing Login', () => {
         wrapper = render(<Login />)
     })
 
-    // this is for checking onChange event of usernmae value
+    // // this is for checking onChange event of usernmae value
     it('testing for username value', () => {
 
         expect(wrapper.getByTestId("username").value).toBe("");
@@ -33,6 +33,7 @@ describe('testing Login', () => {
         fireEvent.change(wrapper.getByTestId("password"), { target: { value: "1234" } });
 
         await fireEvent.click(wrapper.getByTestId("login"));
+        // mocking localstorage 
         Storage.prototype.getItem = jest.fn(() => 'Bearer');
         // const val = localStorage.getItem('token-type');
         // console.log(val);
